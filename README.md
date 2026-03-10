@@ -1,5 +1,3 @@
-# CPP-42
-This `cpp` repository contains exercises and projects that are part of the C++ curriculum from School 42 (the "cpp" modules).
 **C++ Curriculum — School 42 (cpp repository)**
 
 - **Purpose**: This `cpp` repository contains exercises and projects that are part of the C++ curriculum from School 42 (the "cpp" modules). The exercises progress from very small programs that practice basic I/O and string manipulation to object-oriented design, resource management, and C++ core language features.
@@ -12,6 +10,9 @@ This `cpp` repository contains exercises and projects that are part of the C++ c
 - **`cpp04/`**: Advanced class semantics: inheritance, polymorphism, abstract classes.
 - **`cpp05/`**: Templates, generic programming, and utility patterns (where present).
 - **`cpp06/`**: More advanced patterns and exercises (often includes projects using inheritance and polymorphism).
+- **`cpp07/`**: Function templates, class templates, and generic programming basics.
+- **`cpp08/`**: STL containers, iterators, algorithms, and custom container-like classes.
+- **`cpp09/`**: Practical STL-focused exercises (parsing, algorithms, and performance-oriented container usage).
 
 **Exercise Details and What You Practice**
 - **`cpp00/ex00` — `megaphone.cpp`**:
@@ -117,6 +118,60 @@ This `cpp` repository contains exercises and projects that are part of the C++ c
   - **What I've learned**: Combining many small skills into coherent example programs — designing small APIs, writing test drivers, and using `Makefile`s to produce concise demos.
   - **Typical files**: `Makefile`, `main.cpp`, and exercise-specific `.cpp` / `.hpp` files.
 
+- **`cpp07` (ex00 → ex02)**
+  - **Overview**: Introduction to templates through progressively more generic utilities.
+
+  - **`ex00` — `whatever`**
+    - **Focus**: Function templates (`swap`, `min`, `max`) and type-generic code.
+    - **What I've learned**: Writing reusable template functions and understanding template instantiation with different types.
+    - **Typical files**: `includes/whatever.hpp`, `SRCS/main.cpp`, `Makefile`.
+
+  - **`ex01` — `iter`**
+    - **Focus**: Applying template functions over arrays.
+    - **What I've learned**: Passing functions as template parameters and writing const-correct generic iteration helpers.
+    - **Typical files**: `includes/iter.hpp`, `SRCS/main.cpp`, `Makefile`.
+
+  - **`ex02` — `Array`**
+    - **Focus**: Building a templated dynamic array class with bounds checking.
+    - **What I've learned**: Template class design, canonical form, exception handling, and implementation split (`.hpp` + `.tpp`).
+    - **Typical files**: `includes/Array.hpp`, `includes/Array.tpp`, `SRCS/main.cpp`, `Makefile`.
+
+- **`cpp08` (ex00 → ex02)**
+  - **Overview**: STL usage and algorithmic thinking with standard containers.
+
+  - **`ex00` — `easyfind`**
+    - **Focus**: Searching values in generic containers.
+    - **What I've learned**: Using STL algorithms (`std::find`) with templated helper functions and handling “not found” cases.
+    - **Typical files**: `easyfind.hpp`, `main.cpp`, `Makefile`.
+
+  - **`ex01` — `Span`**
+    - **Focus**: Managing a bounded set of numbers and computing shortest/longest spans.
+    - **What I've learned**: Container-backed class design, complexity-aware algorithms, and robust exception handling for edge cases.
+    - **Typical files**: `Span.hpp`, `Span.cpp`, `main.cpp`, `Makefile`.
+
+  - **`ex02` — `MutantStack`**
+    - **Focus**: Extending/adapting `std::stack` to expose iterators.
+    - **What I've learned**: Container adapters, iterator exposure, and template implementation structure (`.hpp` + `.tpp`).
+    - **Typical files**: `MutantStack.hpp`, `MutantStack.tpp`, `main.cpp`, `Makefile`.
+
+- **`cpp09` (ex00 → ex02)**
+  - **Overview**: Data processing exercises centered on parsing, validation, and algorithm/container tradeoffs.
+
+  - **`ex00` — Bitcoin Exchange**
+    - **Focus**: Parsing CSV/input files and computing exchange values by date.
+    - **What I've learned**: Input validation, date/value parsing, map-based lookup strategies, and error reporting for malformed lines.
+    - **Typical files**: `includes/btc.hpp`, `SRCS/btc.cpp`, `SRCS/database.cpp`, `SRCS/validations.cpp`, `SRCS/main.cpp`, `data.csv`, `Makefile`.
+
+  - **`ex01` — RPN**
+    - **Focus**: Reverse Polish Notation expression evaluation.
+    - **What I've learned**: Stack-based evaluation, token validation, and explicit exception flows for invalid expressions.
+    - **Typical files**: `includes/RPN.hpp`, `includes/MyExceptions.hpp`, `SRCS/RPN.cpp`, `SRCS/validations.cpp`, `SRCS/main.cpp`, `Makefile`.
+
+  - **`ex02` — `PmergeMe`**
+    - **Focus**: Ford-Johnson (merge-insert) sorting algorithm with Jacobsthal-guided insertion and performance comparisons across containers.
+    - **What I've learned**: Implementing a canonical Ford-Johnson strategy, validating integer inputs, and comparing behavior/performance on `std::vector` vs `std::deque`.
+    - **Typical files**: `includes/PmergeMe.hpp`, `SRCS/helpers.cpp`, `SRCS/validations.cpp`, `SRCS/main.cpp`, `run_sort.sh`, `Makefile`.
+
 
 **Build & Run (general)**
 - **Build**: If a `Makefile` is present in a given exercise directory, run:
@@ -134,9 +189,6 @@ This `cpp` repository contains exercises and projects that are part of the C++ c
   - `make`
   - `./phonebook`
   - Then type `ADD`, `SEARCH`, and `EXIT` as interactive commands.
-
-**Author**
-Hector Gamiz (hgamiz-g)
 
 **Notes**
 - This `cpp` repository is organized by module and exercise number (`cppNN/exXX`). Each `exXX` folder normally includes a `Makefile` and the `.cpp`/`.hpp` sources for that exercise.
